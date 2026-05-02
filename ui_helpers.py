@@ -39,6 +39,15 @@ def inject_css():
             min-height: 110px;
             box-shadow: 0 6px 18px rgba(31, 51, 89, 0.06);
         }
+                
+        .metric-card-cumulative-alert {
+            background: white;
+            border: 3px solid #dc2626;
+            border-radius: 18px;
+            padding: 16px;
+            min-height: 110px;
+            box-shadow: 0 0 18px rgba(220, 38, 38, 0.45);
+        }
 
         .metric-label {
             font-size: 0.85rem;
@@ -49,7 +58,7 @@ def inject_css():
         .metric-value {
             font-size: 1.85rem;
             font-weight: 800;
-            color: #173c8f !important;
+            color: #173c8f;
             line-height: 1.05;
             margin-bottom: 0.3rem;
         }
@@ -176,7 +185,7 @@ def metric_card(label, value, subtext="", tone="green"):
     return f"""
     <div class="metric-card">
         <div class="metric-label" style="color:#6b7280 !important;">{label}</div>
-        <div class="metric-value" style="color:#173c8f !important;">{value}</div>
+        <div class="metric-value" style="color:{tone_color} !important;">{value}</div>
         <div class="metric-sub" style="color:{tone_color} !important;">{subtext}</div>
     </div>
     """
@@ -199,4 +208,6 @@ def status_badge_html(status):
         return '<span style="color:#991b1b; background-color:#fee2e2; padding:4px 9px; border-radius:999px; font-weight:bold;">STOPPED</span>'
     elif status == "PENDING":
         return '<span style="color:#4b5563; background-color:#e5e7eb; padding:4px 9px; border-radius:999px; font-weight:bold;">PENDING</span>'
+    elif status == "RUNNING":
+        return '<span style="color:#1d4ed8; background-color:#dbeafe; padding:4px 9px; border-radius:999px; font-weight:bold;">RUNNING</span>'
     return ""

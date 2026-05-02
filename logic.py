@@ -79,6 +79,15 @@ stage_weights = {
     "reflow": 0.25
 }
 
+stage_thresholds = {
+    "Die Attach": 0.50,
+    "Die Attach Cure": 0.55,
+    "Moulding": 0.50,
+    "Post-Mould Cure": 0.35,
+    "Solder Reflow": 0.50
+}
+
+cumulative_risk_threshold = 0.20
 
 def evaluate_demo_stage(stage_name, param_values, parameter_weights):
     if stage_name == "Die Attach":
